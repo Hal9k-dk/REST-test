@@ -15,7 +15,10 @@ def request_checker():
     response = 'OK'
 
     if args['test'] is not None:
-        response = response + str(args['test'])
+        if args['test'] == "test":
+            response = response + str(args['test'])
+        else:
+            return "Body wrong", 400
 
     if args['X-Test-Header1'] is not None:
         if args['X-Test-Header1'] == "one":
